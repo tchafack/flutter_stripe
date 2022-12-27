@@ -138,13 +138,7 @@ class _NoWebhookPaymentScreenState extends State<NoWebhookPaymentScreen> {
         final paymentIntent = await Stripe.instance
             .handleNextAction(paymentIntentResult['clientSecret']);
 
-        // todo handle error
-        /*if (cardActionError) {
-        Alert.alert(
-        `Error code: ${cardActionError.code}`,
-        cardActionError.message
-        );
-      } else*/
+   
 
         if (paymentIntent.status == PaymentIntentsStatus.RequiresConfirmation) {
           // 5. Call API to confirm intent
